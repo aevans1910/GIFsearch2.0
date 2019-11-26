@@ -14,7 +14,7 @@
             <button type="submit">Search</button>
         </header>
 
-        <div class="results">
+        <div id="results" class="results">
             <!-- gif images here -->
         </div>
     </div>
@@ -28,7 +28,19 @@
         fetch(path).then(function(res) {
             return res.json()
         }).then(function(json) {
-            console.log(json)
+            console.log(json.data[0].images.fixed_width.url)
+            const resultsEl = document.getElementById('results')
+            let resultsHTML = ""
+
+            json.data.forEach(function(obj) {
+                console.log(obj.images.fixed_width)
+
+                const url = obj.images.fixed_width.url
+                const width = obj.images.fixed_width.width
+                resultsHTML += `<img src="${url}" width="${width}">`
+            })
+
+            resultsEl.innerHTML = resultsHTML
         }).catch(function(err) {
             console.log(err.message)
         })
