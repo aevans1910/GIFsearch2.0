@@ -29,7 +29,10 @@
             return res.json()
         }).then(function(json) {
             console.log(json)
+        }).catch(function(err) {
+            console.log(err.message)
         })
+
     </script>
     
 </body>
