@@ -20,6 +20,16 @@
     </div>
 
     <script>
+
+        const q = "cats"
+        const apikey = "vjNBNU2bQTDwhQbkC0oiy9CtM3NHTARm"
+        const path = `https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${q}`
+
+        fetch(path).then(function(res) {
+            return res.json()
+        }).then(function(json) {
+            console.log(json)
+        })
     </script>
     
 </body>
